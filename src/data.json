@@ -1,0 +1,60 @@
+{
+  "notifications": [
+    {
+      "user": "Mark Webber",
+      "userAvatar": "avatar-mark-webber.webp",
+      "actionType": "reacted",
+      "actionText": "reacted to your recent post",
+      "actionData": "My first tournament today!",
+      "time": "1m ago"
+    },
+    {
+      "user": "Angela Gray",
+      "userAvatar": "avatar-angela-gray.webp",
+      "actionType": "followed",
+      "actionText": "followed you",
+      "actionData": "",
+      "time": "5m ago"
+    },
+    {
+      "user": "Jacob Thompson",
+      "userAvatar": "avatar-jacob-thompson.webp",
+      "actionType": "joined",
+      "actionText": "has joined your group",
+      "actionData": "Chess Club",
+      "time": "1 day ago"
+    },
+    {
+      "user": "Rizky Hasanuddin",
+      "userAvatar": "avatar-rizky-hasanuddin.webp",
+      "actionType": "message",
+      "actionText": "sent you a private message",
+      "actionData": "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
+      "time": "5 days ago"
+    },
+    {
+      "user": "Kimberly Smith",
+      "userAvatar": "avatar-kimberly-smith.webp",
+      "actionType": "commented",
+      "actionText": "commented on your picture",
+      "actionData": "image-chess.webp",
+      "time": "1 week ago"
+    },
+    {
+      "user": "Nathan Peterson",
+      "userAvatar": "avatar-nathan-peterson.webp",
+      "actionType": "reacted",
+      "actionText": "reacted to your recent post",
+      "actionData": "5 end-game strategies to increase your win rate",
+      "time": "2 weeks ago"
+    },
+    {
+      "user": "Anna Kim",
+      "userAvatar": "avatar-anna-kim.webp",
+      "actionType": "lefted",
+      "actionText": "left the group",
+      "actionData": "Chess Club",
+      "time": "2 weeks ago"
+    }
+  ]
+}
