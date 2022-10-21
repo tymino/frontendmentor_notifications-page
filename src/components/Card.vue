@@ -13,7 +13,7 @@
         <a class="card__info-action-data" v-if="setCardData" href="">
           {{ cardData.actionData }}
         </a>
-        <div class="card__led"></div>
+        <div class="card__led" v-if="!cardData.hasRead"></div>
       </div>
       <div class="card__time">{{ cardData.time }}</div>
       <div

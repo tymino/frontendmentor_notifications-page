@@ -1,10 +1,18 @@
 <template>
-  <p>Start</p>
+  <div class="app__header">
+    <div class="app__notification-wrapper">
+      <div class="app__notification-name">notifications</div>
+      <div class="app__notification-name">{{ updateNotificationsCounter }}</div>
+    </div>
+    <div class="app__button-all-mark">mark all as read</div>
+  </div>
 
   <Card
     v-for="notification in notifications"
     :key="notification.id"
+    :data-id="notification.id"
     :cardData="notification"
+    @click.once="!notification.hasRead && markAsReadNotify(notification.id)"
   />
 </template>
 
@@ -27,6 +35,7 @@ export default {
           actionText: 'reacted to your recent post',
           actionData: 'My first tournament today!',
           time: '1m ago',
+          hasRead: false,
         },
         {
           id: 2,
@@ -36,6 +45,7 @@ export default {
           actionText: 'followed you',
           actionData: '',
           time: '5m ago',
+          hasRead: false,
         },
         {
           id: 3,
@@ -45,6 +55,7 @@ export default {
           actionText: 'has joined your group',
           actionData: 'Chess Club',
           time: '1 day ago',
+          hasRead: false,
         },
         {
           id: 4,
@@ -55,6 +66,7 @@ export default {
           actionData:
             "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
           time: '5 days ago',
+          hasRead: true,
         },
         {
           id: 5,
@@ -64,6 +76,7 @@ export default {
           actionText: 'commented on your picture',
           actionData: 'image-chess.webp',
           time: '1 week ago',
+          hasRead: true,
         },
         {
           id: 6,
@@ -73,6 +86,7 @@ export default {
           actionText: 'reacted to your recent post',
           actionData: '5 end-game strategies to increase your win rate',
           time: '2 weeks ago',
+          hasRead: true,
         },
         {
           id: 7,
@@ -82,13 +96,21 @@ export default {
           actionText: 'left the group',
           actionData: 'Chess Club',
           time: '2 weeks ago',
+          hasRead: true,
         },
       ],
     };
   },
   methods: {
-    getData() {
-      console.log('data');
+    markAsReadNotify(id) {
+      this.notifications = this.notifications.map((n) =>
+        n.id === id ? { ...n, hasRead: true } : n
+      );
+    },
+  },
+  computed: {
+    updateNotificationsCounter() {
+      return this.notifications.filter((n) => !n.hasRead).length || '';
     },
   },
 };
@@ -108,6 +130,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px 20px 20px 20px;
 }
 </style>
