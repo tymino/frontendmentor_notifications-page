@@ -26,8 +26,8 @@
     <img
       class="card__info-action-image"
       v-if="cardData.actionType === 'commented'"
-      :src="`./images/${cardData.userAvatar}`"
-      alt=""
+      :src="`./images/${cardData.actionData}`"
+      alt="actionData"
       srcset=""
     />
   </div>

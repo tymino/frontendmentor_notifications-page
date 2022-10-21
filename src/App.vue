@@ -8,11 +8,11 @@
   </div>
 
   <Card
-    v-for="notification in notifications"
-    :key="notification.id"
-    :data-id="notification.id"
-    :cardData="notification"
-    @click.once="!notification.hasRead && markAsReadNotify(notification.id)"
+    v-for="notify in notifications"
+    :key="notify.id"
+    :data-id="notify.id"
+    :cardData="notify"
+    @click.once="!notify.hasRead && markAsReadNotify(notify.id)"
   />
 </template>
 
