@@ -117,6 +117,29 @@ export default {
 </script>
 
 <style lang="scss">
+@font-face {
+  font-family: 'PlusJakartaSans';
+  src: local('PlusJakartaSans'),
+    url(./assets/fonts/PlusJakartaSans-VariableFont_wght.ttf) format('truetype');
+}
+
+:root {
+  --color-red: hsl(1, 90%, 64%);
+  --color-blue: hsl(219, 85%, 26%);
+  --color-white: hsl(0, 0%, 100%);
+  --very-light-grayish-blue: hsl(210, 60%, 98%);
+  --light-grayish-blue-1: hsl(211, 68%, 94%);
+  --light-grayish-blue-2: hsl(205, 33%, 90%);
+  --grayish-blue: hsl(219, 14%, 63%);
+  --dark-grayish-blue: hsl(219, 12%, 42%);
+  --very-dark-blue: hsl(224, 21%, 14%);
+
+  --font-size: 16px;
+  --font-family: PlusJakartaSans, Helvetica, Arial, sans-serif;
+  --font-weight-normal: 500;
+  --font-weight-bold: 800;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -124,12 +147,14 @@ export default {
   text-decoration: none;
 }
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+}
+
+#app {
   margin: 60px 20px 20px 20px;
 }
 </style>
