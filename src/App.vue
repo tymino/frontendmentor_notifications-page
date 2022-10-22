@@ -1,11 +1,8 @@
 <template>
-  <div class="app__header">
-    <div class="app__notification-wrapper">
-      <div class="app__notification-name">notifications</div>
-      <div class="app__notification-name">{{ updateNotificationsCounter }}</div>
-    </div>
-    <div class="app__button-all-mark">mark all as read</div>
-  </div>
+  <Header
+    :counterOfNotification="updateCounterOfNotification"
+    @markAll="markAllAsRead"
+  />
 
   <Card
     v-for="notify in notifications"
@@ -18,11 +15,13 @@
 
 <script>
 import Card from '@/components/Card.vue';
+import Header from '@/components/Header.vue';
 
 export default {
   name: 'App',
   components: {
     Card,
+    Header,
   },
   data() {
     return {
@@ -107,10 +106,16 @@ export default {
         n.id === id ? { ...n, hasRead: true } : n
       );
     },
+    markAllAsRead() {
+      this.notifications = this.notifications.map((n) => ({
+        ...n,
+        hasRead: true,
+      }));
+    },
   },
   computed: {
-    updateNotificationsCounter() {
-      return this.notifications.filter((n) => !n.hasRead).length || '';
+    updateCounterOfNotification() {
+      return this.notifications.filter((n) => !n.hasRead).length;
     },
   },
 };
@@ -130,7 +135,7 @@ export default {
   --very-light-grayish-blue: hsl(210, 60%, 98%);
   --light-grayish-blue-1: hsl(211, 68%, 94%);
   --light-grayish-blue-2: hsl(205, 33%, 90%);
-  --grayish-blue: hsl(219, 14%, 63%);
+  --grayish-blue: hsl(218, 14%, 63%);
   --dark-grayish-blue: hsl(219, 12%, 42%);
   --very-dark-blue: hsl(224, 21%, 14%);
 
@@ -138,6 +143,8 @@ export default {
   --font-family: PlusJakartaSans, Helvetica, Arial, sans-serif;
   --font-weight-normal: 500;
   --font-weight-bold: 800;
+
+  --border-radius: 10px;
 }
 
 * {
@@ -150,11 +157,22 @@ export default {
 html {
   font-size: var(--font-size);
   font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 60px auto;
+  background: var(--very-light-grayish-blue);
+}
+
 #app {
-  margin: 60px 20px 20px 20px;
+  padding: 30px;
+  background: var(--color-white);
+  border-radius: var(--border-radius);
 }
 </style>
