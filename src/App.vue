@@ -175,4 +175,15 @@ body {
   background: var(--color-white);
   border-radius: var(--border-radius);
 }
+
+@media (max-width: 600px) {
+  body {
+    margin: 0px auto;
+  }
+
+  #app {
+    padding: 14px;
+    padding-top: 20px;
+  }
+}
 </style>

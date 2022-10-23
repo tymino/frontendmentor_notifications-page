@@ -2,12 +2,14 @@
   <div class="header">
     <div class="header__notification">
       <div class="header__notification-name">notifications</div>
-      <div
-        class="header__notification-counter"
-        v-if="counterOfNotification > 0"
-      >
-        {{ counterOfNotification }}
-      </div>
+      <transition name="fade">
+        <div
+          class="header__notification-counter"
+          v-if="counterOfNotification > 0"
+        >
+          {{ counterOfNotification }}
+        </div>
+      </transition>
     </div>
     <div class="header__button-all-mark" @click="$emit('markAll')">
       mark all as read
@@ -48,7 +50,7 @@ export default {
       margin-left: 14px;
       padding: 4px 14px;
       background: var(--color-blue);
-      border-radius: var(--border-radius);
+      border-radius: calc(var(--border-radius) - 4px);
       color: var(--color-white);
       font-size: 1.1rem;
     }
@@ -56,9 +58,40 @@ export default {
 
   &__button-all-mark {
     color: var(--dark-grayish-blue);
+    cursor: pointer;
 
     &:first-letter {
       text-transform: capitalize;
+    }
+
+    &:hover {
+      color: var(--color-blue);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+}
+
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+
+@media (max-width: 600px) {
+  .header {
+    &__notification {
+      &-name {
+        font-size: 1.3rem;
+      }
+      &-counter {
+        margin-left: 8px;
+        font-size: 1rem;
+      }
+    }
+
+    &__button-all-mark {
+      font-size: 0.9rem;
     }
   }
 }

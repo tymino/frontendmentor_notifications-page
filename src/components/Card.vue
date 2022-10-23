@@ -87,6 +87,7 @@ export default {
   align-items: flex-start;
   margin-left: 20px;
 }
+
 .card__info {
   display: inline-block;
 
@@ -144,6 +145,8 @@ export default {
     width: 48px;
     height: 48px;
     margin-left: auto;
+    padding-left: 20px;
+    box-sizing: content-box;
   }
 }
 
@@ -157,5 +160,28 @@ export default {
 }
 .fade-leave-to {
   opacity: 0;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 14px;
+    font-size: 0.9rem;
+  }
+
+  .card__avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .card__content {
+    margin-left: 14px;
+  }
+
+  .card__info {
+    &-action-image {
+      width: 40px;
+      height: 40px;
+    }
+  }
 }
 </style>
