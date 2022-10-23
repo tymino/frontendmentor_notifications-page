@@ -11,6 +11,15 @@
     :cardData="notify"
     @click.once="!notify.hasRead && markAsReadNotify(notify.id)"
   />
+
+  <div class="attribution">
+    Challenge by
+    <a
+      href="https://www.frontendmentor.io/challenges/notifications-page-DqK5QAmKbC"
+      target="_blank"
+      >Frontend Mentor</a
+    >. Coded by <a href="https://github.com/tymino">tymino</a>.
+  </div>
 </template>
 
 <script>
@@ -174,6 +183,23 @@ body {
   padding: 30px;
   background: var(--color-white);
   border-radius: var(--border-radius);
+}
+
+.attribution {
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  font-size: 0.7rem;
+  color: var(--grayish-blue);
+  opacity: 0.9;
+
+  a {
+    color: var(--dark-grayish-blue);
+
+    &:hover {
+      color: var(--grayish-blue);
+    }
+  }
 }
 
 @media (max-width: 600px) {
